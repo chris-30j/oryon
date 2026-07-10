@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[22016,["/oryon/_next/static/chunks/2ie8nyh6b59jj.js","/oryon/_next/static/chunks/14mrh2-p_w84d.js"],""]
+3:I[97367,["/oryon/_next/static/chunks/2ie8nyh6b59jj.js","/oryon/_next/static/chunks/14mrh2-p_w84d.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"container","style":{"padding":"4rem 1.5rem"},"children":["Product not found."," ",["$","$L2",null,{"href":"/shop","style":{"color":"var(--primary-color)"},"children":"Back to Shop"}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mrZFHVm-jrdahOAIzwMkd"}
+5:null
