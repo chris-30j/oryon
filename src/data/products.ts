@@ -1,0 +1,57 @@
+// Static product data for GitHub Pages deployment (no backend available)
+export const products = [
+  {
+    id: "1",
+    name: "NIX — Educational Robotics Learning Kit",
+    description: "An introductory kit designed to help beginners explore robotics concepts with hands-on experiments and projects.",
+    price: 9999.00,
+    imageUrl: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+    category: "Kits",
+    stock: 50,
+  },
+  {
+    id: "2",
+    name: "MARK-3 - Advanced Educational Robotics Platform",
+    description: "Advanced platform for serious robotics engineering. Includes sensors, actuators, and AI integration modules.",
+    price: 90000.00,
+    imageUrl: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?auto=format&fit=crop&w=800&q=80",
+    category: "Platforms",
+    stock: 10,
+  },
+  {
+    id: "3",
+    name: "IoT Cube — Smart Interactive LED Cube",
+    description: "Learn IoT with this interactive smart cube that connects to WiFi and responds to gestures and commands.",
+    price: 4999.00,
+    imageUrl: "https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&w=800&q=80",
+    category: "IoT",
+    stock: 100,
+  },
+  {
+    id: "4",
+    name: "Hemessi IoT Board – Educational IoT Development Platform",
+    description: "Comprehensive development board for IoT projects with multiple connectivity options and sensor support.",
+    price: 6999.00,
+    imageUrl: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80",
+    category: "IoT",
+    stock: 75,
+  },
+  {
+    id: "5",
+    name: "MARK-2 — Advanced Educational Robotics Platform",
+    description: "Intermediate platform for robotics enthusiasts ready to step up their engineering skills.",
+    price: 17999.00,
+    imageUrl: "https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80",
+    category: "Platforms",
+    stock: 25,
+  },
+  {
+    id: "6",
+    name: "MARK 1 - Beginner Educational Robotics Kit",
+    description: "Perfect starting point for beginners. Learn the fundamentals of robotics with guided projects.",
+    price: 12999.00,
+    imageUrl: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?auto=format&fit=crop&w=800&q=80",
+    category: "Kits",
+    stock: 60,
+  }
+];
