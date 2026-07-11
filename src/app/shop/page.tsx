@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useCart } from '@/context/CartContext';
 
 interface Product {
   id: string;
@@ -8,12 +9,14 @@ interface Product {
   price: number;
   imageUrl: string;
   category: string;
+  stock: number;
 }
 
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('All');
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch('/api/products')
@@ -53,14 +56,30 @@ export default function Shop() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {filteredProducts.map(product => (
-            <div key={product.id} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+            <div key={product.id} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column' }}>
               <img src={product.imageUrl} alt={product.name} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
-              <div style={{ padding: '1.5rem' }}>
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>{product.name}</h3>
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--secondary-color)', marginBottom: '1rem' }}>
+              <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: '2.2rem' }}>{product.name}</h3>
+                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--secondary-color)', marginBottom: '1.5rem' }}>
                   ₹{product.price.toLocaleString()}
                 </div>
-                <Link href={`/shop/${product.id}`} className="btn btn-primary" style={{ width: '100%', display: 'block', textAlign: 'center' }}>View Details</Link>
+                <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <Link href={`/shop/${product.id}`} className="btn btn-primary" style={{ width: '100%', display: 'block', textAlign: 'center' }}>View Details</Link>
+                  <button 
+                    className="btn btn-secondary" 
+                    style={{ width: '100%', padding: '0.75rem' }}
+                    disabled={product.stock <= 0}
+                    onClick={() => addToCart({
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      imageUrl: product.imageUrl,
+                      stock: product.stock
+                    })}
+                  >
+                    {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
+                  </button>
+                </div>
               </div>
             </div>
           ))}

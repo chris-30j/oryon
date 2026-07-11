@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 
+import { useCart } from '@/context/CartContext';
+
 interface Product {
   id: string;
   name: string;
@@ -17,6 +19,7 @@ export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     if (!id) return;
@@ -59,7 +62,18 @@ export default function ProductDetails() {
             </span>
           </div>
 
-          <button className="btn btn-primary" style={{ padding: '1rem 3rem', fontSize: '1.1rem' }} disabled={product.stock === 0}>
+          <button 
+            className="btn btn-primary" 
+            style={{ padding: '1rem 3rem', fontSize: '1.1rem' }} 
+            disabled={product.stock === 0}
+            onClick={() => addToCart({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              imageUrl: product.imageUrl,
+              stock: product.stock
+            })}
+          >
             {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
           </button>
         </div>
