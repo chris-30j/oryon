@@ -24,27 +24,6 @@ export default function Home() {
       .catch(err => console.error(err));
   }, []);
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    if (featuredProducts.length === 0) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const items = document.querySelectorAll('.scroll-fade');
-    items.forEach((item) => observer.observe(item));
-
-    return () => observer.disconnect();
-  }, [featuredProducts]);
-
   return (
     <>
       <section className={styles.hero}>
@@ -91,18 +70,16 @@ export default function Home() {
         <div className="container">
           <h2>Why Choose Oryon Robotics?</h2>
           <div className={styles.featuresGrid}>
-            <div className={styles.featureCard}>
-              <h3>Locally Developed</h3>
-              <p>Designed, Developed & Manufactured in our state-of-the-art facility in India.</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>Competition Friendly</h3>
-              <p>Attractive & competition friendly kits compatible with open source modules.</p>
-            </div>
-            <div className={styles.featureCard}>
-              <h3>More Value</h3>
-              <p>40%-50% more features and 20%-30% more affordable than our competitors.</p>
-            </div>
+            {[
+              { title: "Locally Developed", desc: "Designed, Developed & Manufactured in our state-of-the-art facility in India." },
+              { title: "Competition Friendly", desc: "Attractive & competition friendly kits compatible with open source modules." },
+              { title: "More Value", desc: "40%-50% more features and 20%-30% more affordable than our competitors." }
+            ].map((feature, index) => (
+              <div key={index} className={`${styles.featureCard} scroll-fade`} style={{ transitionDelay: `${index * 150}ms` }}>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

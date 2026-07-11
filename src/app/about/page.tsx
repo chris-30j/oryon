@@ -36,7 +36,7 @@ export default function About() {
       {/* Our Story */}
       <section className="container" style={{ padding: '5rem 1.5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-          <div>
+          <div className="scroll-fade">
             <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '1.5rem', position: 'relative' }}>
               Our Story
               <span style={{ display: 'block', width: '60px', height: '4px', background: 'var(--secondary-color)', marginTop: '0.5rem' }} />
@@ -48,13 +48,14 @@ export default function About() {
               Based in Chennai, India, we bridge the gap between classroom theory and real-world engineering through hands-on learning kits, active LED cubes, and custom-designed IoT breakout development systems.
             </p>
           </div>
-          <div style={{
+          <div className="scroll-fade" style={{
             position: 'relative',
             borderRadius: '16px',
             overflow: 'hidden',
             boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
             height: '350px',
-            border: '1px solid var(--border-color)'
+            border: '1px solid var(--border-color)',
+            transitionDelay: '150ms'
           }}>
             <img 
               src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" 
@@ -68,7 +69,7 @@ export default function About() {
       {/* Mission & Vision */}
       <section style={{ padding: '5rem 1.5rem', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', background: 'var(--background-dark)' }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
-          <div style={{
+          <div className="scroll-fade" style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
             background: 'var(--card-bg)',
@@ -81,12 +82,13 @@ export default function About() {
               To demystify programming and electronics by building intuitive, reliable, and engaging educational toolkits that foster logical thinking, scientific inquiry, and design innovation.
             </p>
           </div>
-          <div style={{
+          <div className="scroll-fade" style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
             background: 'var(--card-bg)',
             border: '1px solid var(--border-color)',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+            transitionDelay: '150ms'
           }}>
             <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>👁️</div>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-light)' }}>Our Vision</h3>
@@ -99,7 +101,7 @@ export default function About() {
 
       {/* Core Values */}
       <section className="container" style={{ padding: '5rem 1.5rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '3rem' }}>Our Core Values</h2>
+        <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '3rem' }} className="scroll-fade">Our Core Values</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
           {[
             { title: 'Innovation First', icon: '💡', desc: 'Pushing boundaries in STEM product design and interactivity.' },
@@ -107,13 +109,14 @@ export default function About() {
             { title: 'Open Source Spirit', icon: '🌐', desc: 'Encouraging modification, collaboration, and learning sharing.' },
             { title: 'Student Success', icon: '🎓', desc: 'Putting learning experiences and student feedback at our core.' }
           ].map((value, idx) => (
-            <div key={idx} style={{
+            <div key={idx} className="scroll-fade" style={{
               background: 'var(--card-bg)',
               padding: '2.5rem 1.5rem',
               borderRadius: '12px',
               boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
               border: '1px solid var(--border-color)',
-              transition: 'transform 0.3s ease'
+              transition: 'transform 0.3s ease',
+              transitionDelay: `${idx * 100}ms`
             }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{value.icon}</div>
               <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text-light)' }}>{value.title}</h4>
