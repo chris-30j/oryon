@@ -6,27 +6,41 @@ export default function ScrollObserver() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Tiny timeout to make sure Next.js completed rendering the new route
-    const timer = setTimeout(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('animate-in');
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
-      );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+    );
 
-      const items = document.querySelectorAll('.scroll-fade');
+    // Watch all un-animated scroll-fade elements
+    const observeElements = () => {
+      const items = document.querySelectorAll('.scroll-fade:not(.animate-in)');
       items.forEach((item) => observer.observe(item));
+    };
 
-      return () => observer.disconnect();
-    }, 150);
+    // Initial check
+    observeElements();
 
-    return () => clearTimeout(timer);
+    // Mutation observer to handle dynamically loaded content (e.g. async MongoDB products)
+    const mutationObserver = new MutationObserver(() => {
+      observeElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, [pathname]);
 
   return null;

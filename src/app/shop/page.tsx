@@ -33,32 +33,6 @@ export default function Shop() {
 
   const filteredProducts = filter === 'All' ? products : products.filter(p => p.category === filter);
 
-  // Intersection Observer for scroll animations
-  useEffect(() => {
-    if (loading || filteredProducts.length === 0) return;
-    
-    // Clear previous animated-in classes on filter change so they re-animate
-    const existingItems = document.querySelectorAll('.scroll-fade');
-    existingItems.forEach(item => item.classList.remove('animate-in'));
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.05 }
-    );
-
-    const items = document.querySelectorAll('.scroll-fade');
-    items.forEach((item) => observer.observe(item));
-
-    return () => observer.disconnect();
-  }, [loading, filter, products]);
-
   return (
     <div className="container" style={{ padding: '4.5rem 1.5rem' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: 'var(--text-light)' }}>Our Products</h1>
