@@ -24,6 +24,27 @@ export default function Home() {
       .catch(err => console.error(err));
   }, []);
 
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    if (featuredProducts.length === 0) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const items = document.querySelectorAll('.scroll-fade');
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, [featuredProducts]);
+
   return (
     <>
       <section className={styles.hero}>
@@ -50,8 +71,8 @@ export default function Home() {
       <section className={`${styles.section} container`}>
         <h2>Featured Products</h2>
         <div className={styles.productsGrid}>
-          {featuredProducts.map(product => (
-            <div key={product.id} className={styles.productCard}>
+          {featuredProducts.map((product, index) => (
+            <div key={product.id} className={`${styles.productCard} scroll-fade`} style={{ transitionDelay: `${index * 150}ms` }}>
               <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
               <div className={styles.productInfo}>
                 <h3>{product.name}</h3>

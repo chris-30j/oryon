@@ -33,6 +33,32 @@ export default function Shop() {
 
   const filteredProducts = filter === 'All' ? products : products.filter(p => p.category === filter);
 
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    if (loading || filteredProducts.length === 0) return;
+    
+    // Clear previous animated-in classes on filter change so they re-animate
+    const existingItems = document.querySelectorAll('.scroll-fade');
+    existingItems.forEach(item => item.classList.remove('animate-in'));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05 }
+    );
+
+    const items = document.querySelectorAll('.scroll-fade');
+    items.forEach((item) => observer.observe(item));
+
+    return () => observer.disconnect();
+  }, [loading, filter, products]);
+
   return (
     <div className="container" style={{ padding: '4.5rem 1.5rem' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: 'var(--text-light)' }}>Our Products</h1>
@@ -55,8 +81,9 @@ export default function Shop() {
         <p>Loading products from MongoDB...</p>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-          {filteredProducts.map(product => (
-            <div key={product.id} style={{ 
+          {filteredProducts.map((product, index) => (
+            <div key={product.id} className="scroll-fade" style={{ 
+              transitionDelay: `${index * 100}ms`,
               background: 'var(--card-bg)', 
               border: '1px solid var(--border-color)',
               borderRadius: '12px', 
