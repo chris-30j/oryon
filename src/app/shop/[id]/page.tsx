@@ -36,7 +36,7 @@ export default function ProductDetails() {
   }, [id]);
 
   if (loading) return <div className="container" style={{ padding: '4rem 1.5rem' }}>Loading product details from MongoDB...</div>;
-  if (!product) return <div className="container" style={{ padding: '4rem 1.5rem' }}>Product not found. <Link href="/shop" style={{ color: 'var(--primary-color)' }}>Back to Shop</Link></div>;
+  if (!product) return <div className="container" style={{ padding: '4.5rem 1.5rem', color: 'var(--text-light)' }}>Product not found. <Link href="/shop" style={{ color: 'var(--secondary-color)', fontWeight: 600 }}>Back to Shop</Link></div>;
 
   return (
     <div className="container" style={{ padding: '4.5rem 1.5rem' }}>

@@ -34,8 +34,8 @@ export default function Shop() {
   const filteredProducts = filter === 'All' ? products : products.filter(p => p.category === filter);
 
   return (
-    <div className="container" style={{ padding: '4rem 1.5rem' }}>
-      <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: 'var(--primary-color)' }}>Our Products</h1>
+    <div className="container" style={{ padding: '4.5rem 1.5rem' }}>
+      <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: 'var(--text-light)' }}>Our Products</h1>
 
       <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         {['All', 'Kits', 'Platforms', 'IoT'].map(category => (
