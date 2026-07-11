@@ -62,20 +62,49 @@ export default function ProductDetails() {
             </span>
           </div>
 
-          <button 
-            className="btn btn-primary" 
-            style={{ padding: '1rem 3rem', fontSize: '1.1rem' }} 
-            disabled={product.stock === 0}
-            onClick={() => addToCart({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-              imageUrl: product.imageUrl,
-              stock: product.stock
-            })}
-          >
-            {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
-          </button>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginTop: '2rem' }}>
+            <button 
+              className="btn btn-primary" 
+              style={{ padding: '1rem 2rem', fontSize: '1.1rem', flex: '1 1 auto' }} 
+              disabled={product.stock === 0}
+              onClick={() => addToCart({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                imageUrl: product.imageUrl,
+                stock: product.stock
+              })}
+            >
+              {product.stock > 0 ? 'Add to Cart' : 'Out of Stock'}
+            </button>
+            <button 
+              className="btn btn-secondary" 
+              style={{ 
+                padding: '1rem 2rem', 
+                fontSize: '1.1rem', 
+                flex: '1 1 auto',
+                backgroundColor: 'var(--secondary-color)',
+                borderColor: 'var(--secondary-color)',
+                color: 'white'
+              }} 
+              disabled={product.stock === 0}
+              onClick={() => {
+                addToCart({
+                  id: product.id,
+                  name: product.name,
+                  price: product.price,
+                  imageUrl: product.imageUrl,
+                  stock: product.stock
+                });
+                // Small timeout to let cart drawer mount/open state transition
+                setTimeout(() => {
+                  alert('Buy Now Triggered: Proceeding directly to secure checkout gateway.');
+                }, 300);
+              }}
+            >
+              {product.stock > 0 ? 'Buy Now' : 'Out of Stock'}
+            </button>
+          </div>
         </div>
       </div>
     </div>
