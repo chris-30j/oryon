@@ -36,7 +36,7 @@ export default function About() {
       {/* Our Story */}
       <section className="container" style={{ padding: '5rem 1.5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-          <div className="scroll-fade">
+          <div className="scroll-slide-left">
             <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '1.5rem', position: 'relative' }}>
               Our Story
               <span style={{ display: 'block', width: '60px', height: '4px', background: 'var(--secondary-color)', marginTop: '0.5rem' }} />
@@ -48,7 +48,7 @@ export default function About() {
               Based in Chennai, India, we bridge the gap between classroom theory and real-world engineering through hands-on learning kits, active LED cubes, and custom-designed IoT breakout development systems.
             </p>
           </div>
-          <div className="scroll-fade" style={{
+          <div className="scroll-slide-right" style={{
             position: 'relative',
             borderRadius: '16px',
             overflow: 'hidden',
@@ -69,7 +69,7 @@ export default function About() {
       {/* Mission & Vision */}
       <section style={{ padding: '5rem 1.5rem', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', background: 'var(--background-dark)' }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
-          <div className="scroll-fade" style={{
+          <div className="scroll-slide-left" style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
             background: 'var(--card-bg)',
@@ -82,7 +82,7 @@ export default function About() {
               To demystify programming and electronics by building intuitive, reliable, and engaging educational toolkits that foster logical thinking, scientific inquiry, and design innovation.
             </p>
           </div>
-          <div className="scroll-fade" style={{
+          <div className="scroll-slide-right" style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
             background: 'var(--card-bg)',
@@ -101,7 +101,7 @@ export default function About() {
 
       {/* Core Values */}
       <section className="container" style={{ padding: '5rem 1.5rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '3rem' }} className="scroll-fade">Our Core Values</h2>
+        <h2 style={{ fontSize: '2.25rem', fontWeight: 700, marginBottom: '3rem' }} className="scroll-fade-only">Our Core Values</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '2rem' }}>
           {[
             { title: 'Innovation First', icon: '💡', desc: 'Pushing boundaries in STEM product design and interactivity.' },
@@ -109,7 +109,7 @@ export default function About() {
             { title: 'Open Source Spirit', icon: '🌐', desc: 'Encouraging modification, collaboration, and learning sharing.' },
             { title: 'Student Success', icon: '🎓', desc: 'Putting learning experiences and student feedback at our core.' }
           ].map((value, idx) => (
-            <div key={idx} className="scroll-fade" style={{
+            <div key={idx} className="scroll-zoom-in" style={{
               background: 'var(--card-bg)',
               padding: '2.5rem 1.5rem',
               borderRadius: '12px',

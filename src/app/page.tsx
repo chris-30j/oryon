@@ -48,10 +48,10 @@ export default function Home() {
       </section>
 
       <section className={`${styles.section} container`}>
-        <h2>Featured Products</h2>
+        <h2 className="scroll-fade-only">Featured Products</h2>
         <div className={styles.productsGrid}>
           {featuredProducts.map((product, index) => (
-            <div key={product.id} className={`${styles.productCard} scroll-fade`} style={{ transitionDelay: `${index * 150}ms` }}>
+            <div key={product.id} className={`${styles.productCard} scroll-zoom-in`} style={{ transitionDelay: `${index * 150}ms` }}>
               <img src={product.imageUrl} alt={product.name} className={styles.productImage} />
               <div className={styles.productInfo}>
                 <h3>{product.name}</h3>
@@ -68,14 +68,14 @@ export default function Home() {
 
       <section className={styles.section} style={{ backgroundColor: 'var(--background-dark)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
-          <h2>Why Choose Oryon Robotics?</h2>
+          <h2 className="scroll-fade-only">Why Choose Oryon Robotics?</h2>
           <div className={styles.featuresGrid}>
             {[
               { title: "Locally Developed", desc: "Designed, Developed & Manufactured in our state-of-the-art facility in India." },
               { title: "Competition Friendly", desc: "Attractive & competition friendly kits compatible with open source modules." },
               { title: "More Value", desc: "40%-50% more features and 20%-30% more affordable than our competitors." }
             ].map((feature, index) => (
-              <div key={index} className={`${styles.featureCard} scroll-fade`} style={{ transitionDelay: `${index * 150}ms` }}>
+              <div key={index} className={`${styles.featureCard} scroll-slide-up`} style={{ transitionDelay: `${index * 150}ms` }}>
                 <h3>{feature.title}</h3>
                 <p>{feature.desc}</p>
               </div>

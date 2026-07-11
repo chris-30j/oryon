@@ -18,9 +18,9 @@ export default function ScrollObserver() {
       { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
     );
 
-    // Watch all un-animated scroll-fade elements
+    // Watch all un-animated scroll elements
     const observeElements = () => {
-      const items = document.querySelectorAll('.scroll-fade:not(.animate-in)');
+      const items = document.querySelectorAll('[class*="scroll-"]:not(.animate-in)');
       items.forEach((item) => observer.observe(item));
     };
 

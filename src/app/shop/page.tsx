@@ -56,7 +56,7 @@ export default function Shop() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {filteredProducts.map((product, index) => (
-            <div key={product.id} className="scroll-fade" style={{ 
+            <div key={product.id} className="scroll-zoom-in" style={{ 
               transitionDelay: `${index * 100}ms`,
               background: 'var(--card-bg)', 
               border: '1px solid var(--border-color)',
