@@ -66,7 +66,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className={styles.section} style={{ backgroundColor: '#f8fafc' }}>
+      <section className={styles.section} style={{ backgroundColor: 'var(--background-dark)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
         <div className="container">
           <h2>Why Choose Oryon Robotics?</h2>
           <div className={styles.featuresGrid}>

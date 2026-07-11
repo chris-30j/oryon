@@ -39,25 +39,33 @@ export default function ProductDetails() {
   if (!product) return <div className="container" style={{ padding: '4rem 1.5rem' }}>Product not found. <Link href="/shop" style={{ color: 'var(--primary-color)' }}>Back to Shop</Link></div>;
 
   return (
-    <div className="container" style={{ padding: '4rem 1.5rem' }}>
-      <Link href="/shop" style={{ color: 'var(--primary-color)', marginBottom: '2rem', display: 'inline-block' }}>&larr; Back to Shop</Link>
+    <div className="container" style={{ padding: '4.5rem 1.5rem' }}>
+      <Link href="/shop" style={{ color: 'var(--secondary-color)', fontWeight: 600, marginBottom: '2rem', display: 'inline-block' }}>&larr; Back to Shop</Link>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
         <div>
-          <img src={product.imageUrl} alt={product.name} style={{ width: '100%', borderRadius: '12px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }} />
+          <img src={product.imageUrl} alt={product.name} style={{ width: '100%', borderRadius: '16px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)', border: '1px solid var(--border-color)' }} />
         </div>
         <div>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>{product.name}</h1>
-          <p style={{ fontSize: '1.25rem', color: '#666', marginBottom: '2rem' }}>{product.description}</p>
-          <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: 'var(--secondary-color)', marginBottom: '2rem' }}>
+          <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem', color: 'var(--text-light)' }}>{product.name}</h1>
+          <p style={{ fontSize: '1.2rem', color: 'var(--text-muted)', marginBottom: '2rem', lineHeight: '1.7' }}>{product.description}</p>
+          <div style={{ fontSize: '2.75rem', fontWeight: 800, color: 'var(--secondary-color)', marginBottom: '2rem' }}>
             ₹{product.price.toLocaleString()}
           </div>
 
-          <div style={{ marginBottom: '2rem' }}>
-            <span style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: '#e2e8f0', borderRadius: '999px', fontSize: '0.875rem', marginRight: '1rem' }}>
+          <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <span style={{ display: 'inline-block', padding: '0.4rem 1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-color)', color: 'var(--text-muted)', borderRadius: '999px', fontSize: '0.875rem' }}>
               Category: {product.category}
             </span>
-            <span style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: product.stock > 0 ? '#dcfce7' : '#fee2e2', color: product.stock > 0 ? '#166534' : '#991b1b', borderRadius: '999px', fontSize: '0.875rem' }}>
+            <span style={{ 
+              display: 'inline-block', 
+              padding: '0.4rem 1rem', 
+              background: product.stock > 0 ? 'rgba(74, 222, 128, 0.15)' : 'rgba(239, 68, 68, 0.15)', 
+              color: product.stock > 0 ? '#4ade80' : '#f87171', 
+              border: product.stock > 0 ? '1px solid rgba(74, 222, 128, 0.2)' : '1px solid rgba(239, 68, 68, 0.2)',
+              borderRadius: '999px', 
+              fontSize: '0.875rem' 
+            }}>
               {product.stock > 0 ? `In Stock (${product.stock})` : 'Out of Stock'}
             </span>
           </div>

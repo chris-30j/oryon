@@ -3,21 +3,22 @@ import Link from 'next/link';
 
 export default function About() {
   return (
-    <div style={{ background: '#f8fafc', color: 'var(--primary-color)' }}>
+    <div style={{ background: 'var(--background-light)', color: 'var(--text-light)' }}>
       {/* Hero Section */}
       <section style={{
-        background: 'linear-gradient(135deg, var(--primary-color) 0%, #1e293b 100%)',
+        background: 'linear-gradient(135deg, var(--background-dark) 0%, #111827 100%)',
         color: 'white',
-        padding: '6rem 1.5rem',
+        padding: '6.5rem 1.5rem',
         textAlign: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderBottom: '1px solid var(--border-color)'
       }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <h1 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-1px' }}>
             About <span style={{ color: 'var(--secondary-color)' }}>Oryon Robotics</span>
           </h1>
-          <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto', opacity: 0.9, lineHeight: '1.7' }}>
+          <p style={{ fontSize: '1.25rem', maxWidth: '800px', margin: '0 auto', opacity: 0.9, lineHeight: '1.7', color: 'var(--text-muted)' }}>
             Empowering the next generation of engineers, creators, and innovators with bleeding-edge educational robotics platforms and IoT kits.
           </p>
         </div>
@@ -27,7 +28,7 @@ export default function About() {
           left: '-50%',
           width: '200%',
           height: '200%',
-          background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(0,240,255,0.05) 0%, transparent 60%)',
           zIndex: 1
         }} />
       </section>
@@ -40,10 +41,10 @@ export default function About() {
               Our Story
               <span style={{ display: 'block', width: '60px', height: '4px', background: 'var(--secondary-color)', marginTop: '0.5rem' }} />
             </h2>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#475569', marginBottom: '1.5rem' }}>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
               Founded with a vision to make robotics and advanced technologies accessible to students and educational institutions globally, Oryon Robotics designs, manufactures, and supports high-quality educational hardware and software platforms.
             </p>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#475569' }}>
+            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: 'var(--text-muted)' }}>
               Based in Chennai, India, we bridge the gap between classroom theory and real-world engineering through hands-on learning kits, active LED cubes, and custom-designed IoT breakout development systems.
             </p>
           </div>
@@ -51,8 +52,9 @@ export default function About() {
             position: 'relative',
             borderRadius: '16px',
             overflow: 'hidden',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.08)',
-            height: '350px'
+            boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+            height: '350px',
+            border: '1px solid var(--border-color)'
           }}>
             <img 
               src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" 
@@ -64,31 +66,31 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section style={{ backgroundColor: 'white', padding: '5rem 1.5rem' }}>
+      <section style={{ padding: '5rem 1.5rem', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)', background: 'var(--background-dark)' }}>
         <div className="container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
           <div style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
-            background: '#f8fafc',
-            border: '1px solid rgba(0,0,0,0.04)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-color)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
           }}>
             <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>🎯</div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Our Mission</h3>
-            <p style={{ color: '#475569', lineHeight: '1.7', fontSize: '1.05rem' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-light)' }}>Our Mission</h3>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '1.05rem' }}>
               To demystify programming and electronics by building intuitive, reliable, and engaging educational toolkits that foster logical thinking, scientific inquiry, and design innovation.
             </p>
           </div>
           <div style={{
             padding: '3rem 2rem',
             borderRadius: '12px',
-            background: '#f8fafc',
-            border: '1px solid rgba(0,0,0,0.04)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
+            background: 'var(--card-bg)',
+            border: '1px solid var(--border-color)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.2)'
           }}>
             <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>👁️</div>
-            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem' }}>Our Vision</h3>
-            <p style={{ color: '#475569', lineHeight: '1.7', fontSize: '1.05rem' }}>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: '1rem', color: 'var(--text-light)' }}>Our Vision</h3>
+            <p style={{ color: 'var(--text-muted)', lineHeight: '1.7', fontSize: '1.05rem' }}>
               To become the global standard for STEM and advanced robotics education, nurturing a culture where anyone can design, assemble, and program their own automation systems.
             </p>
           </div>
@@ -106,16 +108,16 @@ export default function About() {
             { title: 'Student Success', icon: '🎓', desc: 'Putting learning experiences and student feedback at our core.' }
           ].map((value, idx) => (
             <div key={idx} style={{
-              background: 'white',
+              background: 'var(--card-bg)',
               padding: '2.5rem 1.5rem',
               borderRadius: '12px',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.03)',
-              border: '1px solid rgba(0,0,0,0.02)',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+              border: '1px solid var(--border-color)',
               transition: 'transform 0.3s ease'
             }}>
               <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{value.icon}</div>
-              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.75rem' }}>{value.title}</h4>
-              <p style={{ color: '#64748b', fontSize: '0.95rem', lineHeight: '1.6' }}>{value.desc}</p>
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '0.75rem', color: 'var(--text-light)' }}>{value.title}</h4>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: '1.6' }}>{value.desc}</p>
             </div>
           ))}
         </div>
@@ -123,14 +125,15 @@ export default function About() {
 
       {/* CTA Section */}
       <section style={{
-        background: 'linear-gradient(135deg, #1e293b 0%, var(--primary-color) 100%)',
+        background: 'linear-gradient(135deg, var(--background-dark) 0%, #111827 100%)',
         color: 'white',
         padding: '5rem 1.5rem',
-        textAlign: 'center'
+        textAlign: 'center',
+        borderTop: '1px solid var(--border-color)'
       }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', fontWeight: 700, marginBottom: '1rem' }}>Ready to start your learning journey?</h2>
-          <p style={{ marginBottom: '2rem', opacity: 0.9 }}>Check out our store catalog for our latest IoT kits and advanced robotics platforms.</p>
+          <p style={{ marginBottom: '2rem', opacity: 0.9, color: 'var(--text-muted)' }}>Check out our store catalog for our latest IoT kits and advanced robotics platforms.</p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <Link href="/shop" className="btn btn-primary" style={{ padding: '0.75rem 2rem' }}>Go to Shop</Link>
             <Link href="/contact" className="btn btn-secondary" style={{ padding: '0.75rem 2rem' }}>Get in Touch</Link>

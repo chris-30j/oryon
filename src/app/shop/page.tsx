@@ -56,10 +56,18 @@ export default function Shop() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
           {filteredProducts.map(product => (
-            <div key={product.id} style={{ background: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 10px 30px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column' }}>
-              <img src={product.imageUrl} alt={product.name} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
+            <div key={product.id} style={{ 
+              background: 'var(--card-bg)', 
+              border: '1px solid var(--border-color)',
+              borderRadius: '12px', 
+              overflow: 'hidden', 
+              boxShadow: '0 10px 30px rgba(0,0,0,0.15)', 
+              display: 'flex', 
+              flexDirection: 'column'
+            }}>
+              <img src={product.imageUrl} alt={product.name} style={{ width: '100%', height: '250px', objectFit: 'cover', borderBottom: '1px solid var(--border-color)' }} />
               <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: '2.2rem' }}>{product.name}</h3>
+                <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem', minHeight: '2.2rem', color: 'var(--text-light)' }}>{product.name}</h3>
                 <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: 'var(--secondary-color)', marginBottom: '1.5rem' }}>
                   ₹{product.price.toLocaleString()}
                 </div>
